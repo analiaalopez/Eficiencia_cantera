@@ -88,10 +88,18 @@ if st.button("Evaluar eficiencia"):
     st.write(f"Toneladas por hora: **{ton_por_hora:.2f}**")
     st.write(f"Toneladas por viaje: **{ton_por_viaje:.2f}**")
 
-    st.write("Puntajes:")
-    st.write(f"Puntaje por hora: **{puntaje_hora}**")
-    st.write(f"Puntaje por viaje: **{puntaje_viaje}**")
-    st.write(f"Puntaje total: **{puntaje_total}**")
+def interpretar_puntaje(puntaje):
+    if puntaje == 0:
+        return "Inferior al 25% histórico"
+    elif puntaje == 1:
+        return "Entre el 25% y el 75% histórico"
+    else:
+        return "Superior al 75% histórico"
+
+st.write("Comparación con el histórico:")
+st.write(f"Productividad por hora: **{interpretar_puntaje(puntaje_hora)}**")
+st.write(f"Productividad por viaje: **{interpretar_puntaje(puntaje_viaje)}**")
+st.write(f"Clasificación global: **{estado}**")
 
 st.markdown("---")
 st.subheader("Criterios históricos utilizados")
