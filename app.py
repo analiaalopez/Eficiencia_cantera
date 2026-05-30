@@ -6,6 +6,36 @@ st.set_page_config(
     page_icon="⛏️",
     layout="centered"
 )
+if "iniciar" not in st.session_state:
+    st.session_state.iniciar = False
+
+if not st.session_state.iniciar:
+    st.markdown("""
+    <div style="
+        background-color:#f3f6f4;
+        padding:35px;
+        border-radius:18px;
+        text-align:center;
+        margin-top:25px;
+        margin-bottom:25px;
+    ">
+        <h2>Panel de evaluación operativa</h2>
+        <p style="font-size:18px;">
+        Ingrese al sistema para analizar la eficiencia diaria de la cantera
+        según el desempeño histórico.
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("Comenzar evaluación"):
+        st.session_state.iniciar = True
+        st.rerun()
+
+    st.stop()
+    st.write(
+    "Herramienta de soporte a la decisión para evaluar la eficiencia diaria "
+    "de operación en cantera mediante indicadores históricos de productividad."
+)
 
 st.title("⛏️ Sistema de eficiencia operativa")
 
