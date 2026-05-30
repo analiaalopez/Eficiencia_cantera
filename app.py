@@ -3,7 +3,7 @@ import pandas as pd
 
 st.set_page_config(
     page_title="Sistema de eficiencia operativa",
-    page_icon="⛏️",
+    page_icon="",
     layout="centered"
 )
 if "iniciar" not in st.session_state:
